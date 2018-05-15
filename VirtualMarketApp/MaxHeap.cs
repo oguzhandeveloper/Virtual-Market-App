@@ -15,32 +15,32 @@ namespace VirtualMarketApp
         #endregion
 
         #region internal methods
-        public override void heapifyDown()
+        public override void HeapifyDown()
         {
             int index = 0;
-            while (hasLeftChild(index))
+            while (HasLeftChild(index))
             {
-                int largerChildIndex = getLeftChildIndex(index);
-                if (hasRightChild(index) && rightChild(index) > leftChild(index))
+                int largerChildIndex = GetLeftChildIndex(index);
+                if (HasRightChild(index) && RightChild(index).SalePrice > LeftChild(index).SalePrice)
                 {
-                    largerChildIndex = getRightChildIndex(index);
+                    largerChildIndex = GetRightChildIndex(index);
                 }
 
-                if (Nodes[largerChildIndex] > Nodes[index])
-                    swap(index, largerChildIndex);
+                if (Nodes[largerChildIndex].SalePrice > Nodes[index].SalePrice)
+                    Swap(index, largerChildIndex);
                 else
                     break;
                 index = largerChildIndex;
             }
         }
-        public override void heapifyUp()
+        public override void HeapifyUp()
         {
             int index = Size - 1;
 
-            while (hasParent(index) && parent(index) < Nodes[index])
+            while (HasParent(index) && Parent(index).SalePrice < Nodes[index].SalePrice)
             {
-                swap(index, getParentIndex(index));
-                index = getParentIndex(index);
+                Swap(index, GetParentIndex(index));
+                index = GetParentIndex(index);
             }
         }
         #endregion

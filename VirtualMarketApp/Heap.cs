@@ -7,18 +7,19 @@ namespace VirtualMarketApp
 {
     public abstract class Heap
     {
-        #region internal properties
-        private int Capacity { get; set; }
-        internal int Size { get; set; }
-        internal int[] Nodes { get; set; }
-        #endregion
+        public int Capacity { get; set; }
+        public int Size { get; set; }
+
+        public Product[] Nodes { get; set; }
+
+       
 
         #region constructors
         public Heap()
         {
             Capacity = 100;
             Size = 0;
-            Nodes = new int[Capacity];
+            Nodes=new Product[Capacity];
         }
         #endregion
 
@@ -32,54 +33,54 @@ namespace VirtualMarketApp
             }
         }
 
-        public int getLeftChildIndex(int parentIndex)
+        public int GetLeftChildIndex(int parentIndex)
         {
             return 2 * parentIndex + 1;
         }
 
-        public bool hasLeftChild(int parentIndex)
+        public bool HasLeftChild(int parentIndex)
         {
-            return getLeftChildIndex(parentIndex) < Size;
+            return GetLeftChildIndex(parentIndex) < Size;
         }
 
-        public int leftChild(int index)
+        public Product LeftChild(int index)
         {
-            return Nodes[getLeftChildIndex(index)];
+            return Nodes[GetLeftChildIndex(index)];
         }
 
-        public int getRightChildIndex(int parentIndex)
+        public int GetRightChildIndex(int parentIndex)
         {
             return 2 * parentIndex + 2;
         }
 
-        public bool hasRightChild(int parentIndex)
+        public bool HasRightChild(int parentIndex)
         {
-            return getRightChildIndex(parentIndex) < Size;
+            return GetRightChildIndex(parentIndex) < Size;
         }
 
-        public int rightChild(int index)
+        public Product RightChild(int index)
         {
-            return Nodes[getRightChildIndex(index)];
+            return Nodes[GetRightChildIndex(index)];
         }
 
-        public int getParentIndex(int childIndex)
+        public int GetParentIndex(int childIndex)
         {
             return (childIndex - 1) / 2;
         }
 
-        public bool hasParent(int childIndex)
+        public bool HasParent(int childIndex)
         {
-            return getParentIndex(childIndex) >= 0;
+            return GetParentIndex(childIndex) >= 0;
         }
 
-        public int parent(int index)
+        public Product Parent(int index)
         {
-            return Nodes[getParentIndex(index)];
+            return Nodes[GetParentIndex(index)];
         }
 
-        public void swap(int index1, int index2)
+        public void Swap(int index1, int index2)
         {
-            int temp = Nodes[index1];
+            Product temp =Nodes[index1];
             Nodes[index1] = Nodes[index2];
             Nodes[index2] = temp;
         }
@@ -93,7 +94,7 @@ namespace VirtualMarketApp
         /// </summary>
         /// <returns>Int value of minimum element</returns>
         /// <exception cref="">InvalidOperationException when heap is empty</exception>
-        public int peek()
+        public Product Peek()
         {
             if (Size == 0)
                 throw new InvalidOperationException("Heap is empty");
@@ -106,15 +107,15 @@ namespace VirtualMarketApp
         /// </summary>
         /// <returns>Int value of minimum element</returns>
         /// <exception cref="">InvalidOperationException when heap is empty</exception>
-        public int pop()
+        public Product Pop()
         {
             if (Size == 0)
                 throw new InvalidOperationException("Heap is empty");
 
-            int item = Nodes[0];
-            Nodes[0] = Nodes[Size - 1];
+            Product item = Nodes[0];
+            Nodes[0] =Nodes[Size - 1];
             Size--;
-            heapifyDown();
+            HeapifyDown();
             return item;
         }
 
@@ -122,18 +123,19 @@ namespace VirtualMarketApp
         /// Add a new item to heap, enlarging the array if needed
         /// </summary>
         /// <returns>void</returns>
-        public void add(int item)
+        public void Add(Product item)
         {
             EnlargeIfNeeded();
             Nodes[Size] = item;
             Size++;
-            heapifyUp();
+            HeapifyUp();
         }
         #endregion
 
         #region abstract methods
-        public abstract void heapifyUp();
-        public abstract void heapifyDown();
+        public abstract void HeapifyUp();
+        public abstract void HeapifyDown();
+
         #endregion
     }
 }

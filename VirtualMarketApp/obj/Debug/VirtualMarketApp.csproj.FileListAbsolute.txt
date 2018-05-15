@@ -13,3 +13,11 @@ C:\Users\Emre\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\bin\Debug\Vir
 C:\Users\Emre\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.csprojResolveAssemblyReference.cache
 C:\Users\Emre\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.Properties.Resources.resources
 C:\Users\Emre\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.csproj.GenerateResource.Cache
+C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.csprojResolveAssemblyReference.cache
+C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.Properties.Resources.resources
+C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.csproj.GenerateResource.cache
+C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.csproj.CoreCompileInputs.cache
+C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.exe
+C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.pdb
+C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\bin\Debug\VirtualMarketApp.exe
+C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\bin\Debug\VirtualMarketApp.pdb

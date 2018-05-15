@@ -10,5 +10,7 @@ namespace VirtualMarketApp
     {
         public List<CategoryBST> Categories { get; set; }
         public HashMap Hash { get; set; }
+        public MaxHeap MaxHeapObject { get; set; }
+        public MinHeap MinHeapObject { get; set; }
     }
 }
