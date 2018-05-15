@@ -13,6 +13,7 @@ namespace VirtualMarketApp
         public decimal Cost { get; set; }
         public decimal SalePrice { get; set; }
         public string ProductDescription { get; set; }
+        //public string ProductType { get; set; }
 
 
         public Product()

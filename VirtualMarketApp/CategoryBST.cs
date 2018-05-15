@@ -8,6 +8,7 @@ namespace VirtualMarketApp
     public class CategoryBST
     {
         private CategoryBSTNode root;
+        public string CategoryName { get; set; }
         private string listMessage;
 
         public CategoryBST() { }
@@ -16,10 +17,33 @@ namespace VirtualMarketApp
             this.root = root;
         }
 
-        public bool Delete()
+        #region Delete
+        public Product Delete(string productDescription)
         {
-            throw new Exception("Kullanılmadı");
+
+            return Delete(productDescription, root);
         }
+
+        public Product Delete(string productDescription, CategoryBSTNode node)
+        {
+            if (node == null)
+                return null;
+
+            int i = 0;
+            for (; i < node.Data.Products.Count; i++)
+            {
+                if (node.Data.Products[i].ProductDescription.Equals(productDescription))
+                {
+                    Product temp = node.Data.Products[i];
+                    node.Data.Products.RemoveAt(i);
+                    return temp;
+                }
+            }
+
+            Product temp1 = Delete(productDescription, node.NodeLeft) ?? Delete(productDescription, node.NodeRight);
+            return temp1;
+        } 
+        #endregion
 
         #region Insert
         public bool Insert(Product product, string productType)
