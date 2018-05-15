@@ -15,9 +15,9 @@ namespace VirtualMarketApp
        
 
         #region constructors
-        public Heap()
+        public Heap(int capacity)
         {
-            Capacity = 100;
+            this.Capacity = capacity;
             Size = 0;
             Nodes=new Product[Capacity];
         }
@@ -115,7 +115,30 @@ namespace VirtualMarketApp
             Product item = Nodes[0];
             Nodes[0] =Nodes[Size - 1];
             Size--;
-            HeapifyDown();
+            HeapifyDown(0);
+            return item;
+        }
+
+        public Product Pop(string productDescription)
+        {
+
+
+            if (Size == 0)
+                throw new InvalidOperationException("Heap is empty");
+            int index = -1;
+            for (int i = 0; i < Size; i++)
+            {
+                if (Nodes[i].ProductDescription.Equals(productDescription))
+                    index = i;
+            }
+
+            if (index == -1)
+                return null;
+
+            Product item = Nodes[0];
+            Nodes[0] = Nodes[Size - 1];
+            Size--;
+            HeapifyDown(index);
             return item;
         }
 
@@ -134,7 +157,7 @@ namespace VirtualMarketApp
 
         #region abstract methods
         public abstract void HeapifyUp();
-        public abstract void HeapifyDown();
+        public abstract void HeapifyDown(int index);
 
         #endregion
     }

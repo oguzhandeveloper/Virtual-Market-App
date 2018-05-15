@@ -8,15 +8,15 @@ namespace VirtualMarketApp
     public class MinHeap : Heap
     {
         #region constructors
-        public MinHeap() : base()
+        public MinHeap(int capacity) : base(capacity)
         {
         }
         #endregion
 
         #region internal methods
-        public override void HeapifyDown()
+        public override void HeapifyDown(int index)
         {
-            int index = 0;
+            
             while (HasLeftChild(index))
             {
                 int smallerChildIndex = GetLeftChildIndex(index);

@@ -8,16 +8,16 @@ namespace VirtualMarketApp
     public class MaxHeap : Heap
     {
         #region constructors
-        public MaxHeap() : base()
+        public MaxHeap(int capacity) : base(capacity)
         {
         }
         
         #endregion
 
         #region internal methods
-        public override void HeapifyDown()
+        public override void HeapifyDown(int index)
         {
-            int index = 0;
+            
             while (HasLeftChild(index))
             {
                 int largerChildIndex = GetLeftChildIndex(index);
