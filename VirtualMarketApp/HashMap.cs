@@ -38,11 +38,11 @@ namespace VirtualMarketApp
             return temp;
         }
 
-        public HashEntry Search(string key)
+        public List<Product> Search(string key)
         {
             int keyValue = HashFunction(key);
 
-            HashEntry temp = table[keyValue].Search(key);
+            List<Product> temp = table[keyValue].Search(key);
 
             return temp;
 

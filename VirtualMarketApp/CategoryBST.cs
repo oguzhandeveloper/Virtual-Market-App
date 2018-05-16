@@ -5,11 +5,23 @@ using System.Text;
 
 namespace VirtualMarketApp
 {
+
+    public class ListProduct
+    {
+        public List<Product> products { get; set; }
+        public int Duzey { get; set; }
+
+        public ListProduct()
+        {
+
+        }
+    }
+
     public class CategoryBST
     {
         private CategoryBSTNode root;
         public string CategoryName { get; set; }
-        private string listMessage;
+        private List<ListProduct> listMessage;
 
         public CategoryBST() { }
         public CategoryBST(CategoryBSTNode root)
@@ -163,16 +175,24 @@ namespace VirtualMarketApp
         }
         #endregion
 
+
+        private int duzeyCount=0;
+        int duzey = 1;
         #region Visit
         private void Visit(CategoryBSTNode node)
         {
-            listMessage += node.Data.ProductType;
+            duzeyCount++;
+            int kalan = duzeyCount % 2;
+            int bolum = duzeyCount / 2;
+            if (kalan == 0 && bolum % 2 == 0)
+                duzey += 1;
+            listMessage.Add(new ListProduct { Duzey = duzey, products = node.Data.Products });
             //TODO
         }
         #endregion
 
         #region CategoryPrint
-        public string CategoryPrint()
+        public List<ListProduct> CategoryPrint()
         {
             return listMessage;
             //TODO
@@ -182,7 +202,8 @@ namespace VirtualMarketApp
         #region PreOrder
         public void PreOrder()
         {
-            listMessage = "";
+            listMessage = new List<ListProduct>();
+            duzeyCount = 0;
             PreOrderVisit(root);
         }
 
@@ -190,6 +211,8 @@ namespace VirtualMarketApp
         {
             if (node == null)
                 return;
+
+            
             Visit(node);
             PreOrderVisit(node.NodeLeft);
             PreOrderVisit(node.NodeRight);
@@ -199,7 +222,8 @@ namespace VirtualMarketApp
         #region InOrder
         public void InOrder()
         {
-            listMessage = "";//TODO
+            listMessage = new List<ListProduct>();
+            duzeyCount = 0;
             InOrderVisit(root);
         }
 
@@ -216,7 +240,8 @@ namespace VirtualMarketApp
         #region PostOrder
         public void PostOrder()
         {
-            listMessage = "";//TODO
+            listMessage = new List<ListProduct>();
+            duzeyCount = 0;
             PostOrderVisit(root);
         }
 

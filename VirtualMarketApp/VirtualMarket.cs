@@ -21,12 +21,12 @@ namespace VirtualMarketApp
             Hash = new HashMap(Size);
             MaxHeapObject = new MaxHeap(Size);
             MinHeapObject = new MinHeap(Size);
-            
+
         }
 
         public void InsertProduct(Product product, string productType, string CategoryName)
         {
-            
+
 
             Hash.Add(product.ProductDescription, product);
             MaxHeapObject.Add(product);
@@ -65,7 +65,69 @@ namespace VirtualMarketApp
             }
             return product;
         }
-      
+
+        public List<Product> SearchHash(string productDesription)
+        {
+            return Hash.Search(productDesription);
+        }
+
+        public Product OrderProduct(string productDescription)
+        {
+            List<Product> products = SearchHash(productDescription);
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].ProductDescription.Equals(productDescription))
+                    return products[i];
+            }
+
+            return null;
+        }
+
+        public List<ListProduct> CategoryListPreOrder(string categoryName)
+        {
+            int i = 0;
+            for (i = 0; i < Categories.Count; i++)
+            {
+                if (Categories[i].CategoryName.Equals(categoryName))
+                {
+                    Categories[i].PreOrder();
+                    return Categories[i].CategoryPrint();
+                }
+            }
+
+            return null;
+        }
+
+        public List<ListProduct> CategoryListInOrder(string categoryName)
+        {
+            int i = 0;
+            for (i = 0; i < Categories.Count; i++)
+            {
+                if (Categories[i].CategoryName.Equals(categoryName))
+                {
+                    Categories[i].InOrder();
+                    return Categories[i].CategoryPrint();
+                }
+            }
+
+            return null;
+        }
+
+        public List<ListProduct> CategoryListPostOrder(string categoryName)
+        {
+            int i = 0;
+            for (i = 0; i < Categories.Count; i++)
+            {
+                if (Categories[i].CategoryName.Equals(categoryName))
+                {
+                    Categories[i].PostOrder();
+                    return Categories[i].CategoryPrint();
+                }
+            }
+
+            return null;
+        }
 
 
     }

@@ -38,18 +38,18 @@ namespace VirtualMarketApp
 
         }
 
-        public HashEntry Search(string key)
+        public List<Product> Search(string key)
         {
+            List<Product> list = new List<Product>();
             for (int i = 0; i < Hash.Count; i++)
             {
                 if (Hash[i].Key.Equals(key))
                 {
-                    HashEntry temp = Hash[i];
-                    return temp;
+                    list.Add((Product)Hash[i].Data);
                 }
             }
 
-            return null;
+            return list;
 
         }
 

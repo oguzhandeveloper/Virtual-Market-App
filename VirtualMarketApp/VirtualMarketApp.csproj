@@ -57,8 +57,11 @@
     <Compile Include="HashMap.cs" />
     <Compile Include="HashList.cs" />
     <Compile Include="Heap.cs" />
+    <Compile Include="MarketCustomer.cs" />
+    <Compile Include="MarketStaff.cs" />
     <Compile Include="MaxHeap.cs" />
     <Compile Include="MinHeap.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
