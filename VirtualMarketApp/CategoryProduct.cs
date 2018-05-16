@@ -19,22 +19,5 @@ namespace VirtualMarketApp
         {
             Products.Add(product);
         }
-
-        public void Insert(string productName, string Brand, string Model, int Amount,
-        int MyProperty, decimal Cost, decimal SalePrice, string ProductDescription,string productType)
-        {
-            Product product = new Product
-            {
-                ProductName=productName,
-                Model = Model,
-                Amount = Amount,
-                Brand = Brand,
-                Cost = Cost,
-                ProductDescription = ProductDescription,
-                SalePrice = SalePrice,
-                ProductType=productType
-                
-            };
-        }
     }
 }
