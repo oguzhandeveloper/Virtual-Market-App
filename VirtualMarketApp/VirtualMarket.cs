@@ -19,19 +19,18 @@ namespace VirtualMarketApp
             Size = 100; // Sınır - 
             Categories = new List<CategoryBST>();
             Hash = new HashMap(Size);
-            MaxHeapObject = new MaxHeap(Size);
-            MinHeapObject = new MinHeap(Size);
 
+            
+
+        }
+
+        public void InsertProductHash(Product product, string productDescription)
+        {
+            Hash.Add(productDescription, product);
         }
 
         public void InsertProduct(Product product, string productType, string CategoryName)
         {
-
-
-            Hash.Add(product.ProductDescription, product);
-            MaxHeapObject.Add(product);
-            MinHeapObject.Add(product);
-
             bool isAdded = false;
             for (int i = 0; i < Categories.Count; i++)
             {
@@ -51,11 +50,33 @@ namespace VirtualMarketApp
             }
         }
 
-        public Product DeleteProduct(string productDesctription)
+        public void InsertCategoryBTS(string categotyName)
         {
-            Hash.Delete(productDesctription);
-            MaxHeapObject.Pop(productDesctription);
-            MinHeapObject.Pop(productDesctription);
+            bool isAdded = false;
+            for (int i = 0; i < Categories.Count; i++)
+            {
+                if (Categories[i].CategoryName.Equals(categotyName))
+                    isAdded = true;
+            }
+
+            if(!isAdded)
+            {
+                CategoryBST category = new CategoryBST();
+                category.CategoryName = categotyName;
+
+                Categories.Add(category);
+            }
+        }
+
+        public Product DeleteProductHash(string productDescription)
+        {
+            return Hash.Delete(productDescription);
+        }
+        
+
+        public Product DeleteProductBTS(string productDesctription)
+        {
+            
             Product product = null;
             for (int i = 0; i < Categories.Count; i++)
             {
@@ -127,6 +148,77 @@ namespace VirtualMarketApp
             }
 
             return null;
+        }
+
+        public bool ProductUpdate(string productDescription, string productName, string Brand, string Model, int Amount,
+             decimal Cost, decimal SalePrice)
+        {
+            List<Product> products = Hash.Search(productDescription);
+            Product product = null;
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].ProductDescription.Equals(productDescription))
+                    product = products[i];
+            }
+
+            if (product == null)
+                return false;
+
+            product.ProductName = productName;
+            product.Brand = Brand;
+            product.Model = Model;
+            product.Amount = Amount;
+            product.Cost = Cost;
+            product.SalePrice = SalePrice;
+            return true;
+
+        }
+
+        public bool ProductUpdate(string productDescription ,string Brand, string Model, int Amount,
+            decimal Cost, decimal SalePrice)
+        {
+            List<Product> products = Hash.Search(productDescription);
+            Product product = null;
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].ProductDescription.Equals(productDescription))
+                    product = products[i];
+            }
+
+            if (product == null)
+                return false;
+            product.Brand = Brand;
+            product.Model = Model;
+            product.Amount = Amount;
+            product.Cost = Cost;
+            product.SalePrice = SalePrice;
+
+            return true;
+
+        }
+
+        public bool ProductUpdateCategory(string productDescription, string categoryName)
+        {
+            List<Product> products = Hash.Search(productDescription);
+            Product product = null;
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].ProductDescription.Equals(productDescription))
+                    product = products[i];
+            }
+
+            if (product == null)
+                return false;
+
+            product.ProductType = categoryName;
+            DeleteProductBTS(productDescription);
+            InsertProduct(product, product.ProductType, categoryName);
+
+            return true;
+
         }
 
 

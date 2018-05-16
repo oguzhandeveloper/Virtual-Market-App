@@ -29,13 +29,13 @@ namespace VirtualMarketApp
             table[keyValue].Add(temp);
         }
 
-        public HashEntry Delete(string key)
+        public Product Delete(string key)
         {
             int keyValue = HashFunction(key);
 
             HashEntry temp = table[keyValue].Delete(key);
 
-            return temp;
+            return (Product)temp.Data;
         }
 
         public List<Product> Search(string key)

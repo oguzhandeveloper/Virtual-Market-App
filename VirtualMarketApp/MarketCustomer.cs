@@ -19,7 +19,7 @@ namespace VirtualMarketApp
         {
             for (int i = 0; i < ShoppingList.Count; i++)
             {
-                Market.DeleteProduct(ShoppingList[i].ProductDescription);
+                Market.DeleteProductBTS(ShoppingList[i].ProductDescription);
             }
         }
 
