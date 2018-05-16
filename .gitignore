@@ -3,3 +3,4 @@
 *.lock
 *.ide
 .vs/VirtualMarketApp/v14/.suo
+VirtualMarketApp/bin/Debug/VirtualMarketApp.vshost.exe.manifest

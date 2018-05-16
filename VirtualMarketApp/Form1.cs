@@ -11,14 +11,24 @@ namespace VirtualMarketApp
 {
     public partial class Form1 : Form
     {
+        VirtualMarket vm;
+        MarketCustomer mc;
         public Form1()
         {
             InitializeComponent();
+            vm = new VirtualMarket();
+            mc = new MarketCustomer();
+            mc.Market = vm;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
