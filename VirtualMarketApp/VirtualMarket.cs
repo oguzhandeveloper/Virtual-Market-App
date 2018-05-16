@@ -13,6 +13,8 @@ namespace VirtualMarketApp
         public MaxHeap MaxHeapObject { get; set; }
         public MinHeap MinHeapObject { get; set; }
         public int Size { get; set; }
+        public decimal InCome { get; set; }
+        public decimal  Expense{ get; set; }
 
         public VirtualMarket()
         {
@@ -20,7 +22,7 @@ namespace VirtualMarketApp
             Categories = new List<CategoryBST>();
             Hash = new HashMap(Size);
 
-            
+
 
         }
 
@@ -59,7 +61,7 @@ namespace VirtualMarketApp
                     isAdded = true;
             }
 
-            if(!isAdded)
+            if (!isAdded)
             {
                 CategoryBST category = new CategoryBST();
                 category.CategoryName = categotyName;
@@ -72,11 +74,11 @@ namespace VirtualMarketApp
         {
             return Hash.Delete(productDescription);
         }
-        
+
 
         public Product DeleteProductBTS(string productDesctription)
         {
-            
+
             Product product = null;
             for (int i = 0; i < Categories.Count; i++)
             {
@@ -175,7 +177,7 @@ namespace VirtualMarketApp
 
         }
 
-        public bool ProductUpdate(string productDescription ,string Brand, string Model, int Amount,
+        public bool ProductUpdate(string productDescription, string Brand, string Model, int Amount,
             decimal Cost, decimal SalePrice)
         {
             List<Product> products = Hash.Search(productDescription);
@@ -221,6 +223,28 @@ namespace VirtualMarketApp
 
         }
 
+        public void CalculateFinance()// Gelir 
+        {
+            decimal income = 0;
+            decimal expense = 0;
+            for (int i = 0; i < Categories.Count; i++)
+            {
+                List<ListProduct> listCategory = CategoryListPreOrder(Categories[i].CategoryName);
+                for (int j = 0; j < listCategory.Count; j++)
+                {
+                    List<Product> products=listCategory[i].products;
+                    for (int k = 0; k < products.Count; k++)
+                    {
+                        income += products[i].SalePrice;
+                        expense += products[i].Cost;
+                    }
+                }
+
+            }
+
+            this.InCome = income;
+            this.Expense = expense;
+        }
 
     }
 }
