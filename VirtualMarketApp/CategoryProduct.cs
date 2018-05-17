@@ -13,6 +13,7 @@ namespace VirtualMarketApp
         public CategoryProduct(string ProductType)
         {
             this.ProductType = ProductType;
+            Products = new List<Product>();
         }
 
         public void Insert(Product product)

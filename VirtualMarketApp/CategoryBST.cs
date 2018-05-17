@@ -23,13 +23,14 @@ namespace VirtualMarketApp
         public string CategoryName { get; set; }
         private List<ListProduct> listMessage;
 
-        public CategoryBST() { }
+        public CategoryBST() {
+        }
         public CategoryBST(CategoryBSTNode root)
         {
             this.root = root;
         }
 
-        #region Delete
+        #region Delete Product
         public Product Delete(string productDescription)
         {
 
@@ -81,6 +82,17 @@ namespace VirtualMarketApp
                     temp = temp.NodeRight;
                 }
             }
+
+            //Hiç yok ise
+            if(root==null)
+            {
+                CategoryProduct productCategory = new CategoryProduct(productType);
+                CategoryBSTNode category = new CategoryBSTNode(productCategory);
+                root = category;
+                productCategory.Insert(product);
+                return true;
+            }
+
             //Ürün tipi yok ise
             if (temp == null)
             {

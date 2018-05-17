@@ -12,15 +12,17 @@ namespace VirtualMarketApp
         public HashMap Hash { get; set; }
         public MaxHeap MaxHeapObject { get; set; }
         public MinHeap MinHeapObject { get; set; }
+        public List<Product> ProductsList { get; set; }
         public int Size { get; set; }
         public decimal InCome { get; set; }
-        public decimal  Expense{ get; set; }
+        public decimal Expense { get; set; }
 
         public VirtualMarket()
         {
             Size = 100; // Sınır - 
             Categories = new List<CategoryBST>();
             Hash = new HashMap(Size);
+            ProductsList = new List<Product>();
 
 
 
@@ -40,6 +42,7 @@ namespace VirtualMarketApp
                 {
                     isAdded = true;
                     Categories[i].Insert(product, productType);
+                    ProductsList.Add(product);
                 }
             }
 
@@ -49,6 +52,7 @@ namespace VirtualMarketApp
                 category.CategoryName = CategoryName;
                 category.Insert(product, productType);
                 Categories.Add(category);
+                ProductsList.Add(product);
             }
         }
 
@@ -89,9 +93,30 @@ namespace VirtualMarketApp
             return product;
         }
 
+
         public List<Product> SearchHash(string productDesription)
         {
             return Hash.Search(productDesription);
+        }
+
+        public Product SearchProduct(string productDescription)
+        {
+            List<Product> products = Hash.Search(productDescription);
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].ProductDescription.Equals(productDescription))
+                {
+                    return products[i];
+                }
+            }
+
+            return null;
+        }
+
+        public List<Product> ListHash()
+        {
+            return Hash.List();
         }
 
         public Product OrderProduct(string productDescription)
@@ -201,28 +226,7 @@ namespace VirtualMarketApp
 
         }
 
-        public bool ProductUpdateCategory(string productDescription, string categoryName)
-        {
-            List<Product> products = Hash.Search(productDescription);
-            Product product = null;
-
-            for (int i = 0; i < products.Count; i++)
-            {
-                if (products[i].ProductDescription.Equals(productDescription))
-                    product = products[i];
-            }
-
-            if (product == null)
-                return false;
-
-            product.ProductType = categoryName;
-            DeleteProductBTS(productDescription);
-            InsertProduct(product, product.ProductType, categoryName);
-
-            return true;
-
-        }
-
+        
         public void CalculateFinance()// Gelir 
         {
             decimal income = 0;
@@ -232,7 +236,7 @@ namespace VirtualMarketApp
                 List<ListProduct> listCategory = CategoryListPreOrder(Categories[i].CategoryName);
                 for (int j = 0; j < listCategory.Count; j++)
                 {
-                    List<Product> products=listCategory[i].products;
+                    List<Product> products = listCategory[i].products;
                     for (int k = 0; k < products.Count; k++)
                     {
                         income += products[i].SalePrice;
