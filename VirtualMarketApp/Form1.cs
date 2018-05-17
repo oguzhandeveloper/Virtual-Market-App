@@ -66,8 +66,13 @@ namespace VirtualMarketApp
 
             if (Staffs[index].Control(username, password))
             {
-                //TODO
                 MessageBox.Show("Giriş Tamamlandı..");
+                PersonelForm form = new PersonelForm();
+                form.Market = this.Market;
+                form.Staff = Staffs[index];
+                form.AnaMenu = this;
+                this.Hide();
+                form.Show();
             }
             else
             {
@@ -215,8 +220,13 @@ namespace VirtualMarketApp
 
             if (Customers[index].Control(username, password))
             {
-                //TODO
                 MessageBox.Show("Giriş Tamamlandı..");
+                CustomerForm form = new CustomerForm();
+                form.Market = this.Market;
+                form.Customer = Customers[index];
+                form.AnaMenu = this;
+                this.Hide();
+                form.Show();
             }
             else
             {
