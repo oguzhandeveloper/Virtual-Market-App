@@ -10,6 +10,11 @@ namespace VirtualMarketApp
         public VirtualMarket Market { get; set; }
         public List<Product> ShoppingList { get; set; }
 
+        public MarketCustomer()
+        {
+            ShoppingList = new List<Product>();
+        }
+
         public void Add(Product product)
         {
             ShoppingList.Add(product);
@@ -37,7 +42,9 @@ namespace VirtualMarketApp
             {
                 Market.DeleteProductBTS(ShoppingList[i].ProductDescription);
                 Market.DeleteProductHash(ShoppingList[i].ProductDescription);
+                ShoppingList.RemoveAt(i);
             }
+            
         }
 
         public bool BuyProduct(string productDescription)

@@ -24,3 +24,6 @@ C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\bin\Debug
 C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.Form1.resources
 C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.PersonelForm.resources
 C:\Users\Oğuzhan\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.CustomerForm.resources
+C:\Users\Emre\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.CustomerForm.resources
+C:\Users\Emre\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.Form1.resources
+C:\Users\Emre\Documents\GitHub\Virtual-Market-App\VirtualMarketApp\obj\Debug\VirtualMarketApp.PersonelForm.resources

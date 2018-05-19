@@ -30,7 +30,7 @@ namespace VirtualMarketApp
             string bilgi = txtCUrunNormalArama.Text;
             if (bilgi.Equals(""))
             {
-                MessageBox.Show("Bu Alanı Boş Geçemezsiniz...");
+                MessageBox.Show("Bu Alanı Boş Geçemezsiniz");
                 return;
             }
 
@@ -38,7 +38,7 @@ namespace VirtualMarketApp
 
             if (product == null)
             {
-                MessageBox.Show("Aradığınız Ürün Bulunamadı...");
+                MessageBox.Show("Aradığınız Ürün Bulunamadı");
                 return;
             }
 
@@ -47,7 +47,7 @@ namespace VirtualMarketApp
 
             dataGridViewCUrunAra.DataSource = null;
             dataGridViewCUrunAra.DataSource = products;
-            MessageBox.Show("Ürün Bulundu");
+            MessageBox.Show(products.Count+ " Adet Ürün Bulundu");
 
 
         }
@@ -63,7 +63,7 @@ namespace VirtualMarketApp
             }
             catch (Exception)
             {
-                MessageBox.Show("Hatalı Değer Girdiniz...");
+                MessageBox.Show("Hatalı Değer Girdiniz!");
             }
 
 
@@ -73,7 +73,7 @@ namespace VirtualMarketApp
 
             if (products == null)
             {
-                MessageBox.Show("Markette Ürün Bulumamaktadır...");
+                MessageBox.Show("Markette Ürün Bulumamaktadır");
                 return;
             }
 
@@ -94,7 +94,7 @@ namespace VirtualMarketApp
 
             dataGridViewCUrunAra.DataSource = null;
             dataGridViewCUrunAra.DataSource = listFiyat;
-            MessageBox.Show("Ürünler Bulundu");
+            MessageBox.Show(listFiyat.Count + " Adet Ürün Bulundu");
         }
 
         private void btnCUrunAraHash_Click(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace VirtualMarketApp
 
             dataGridViewCUrunAra.DataSource = null;
             dataGridViewCUrunAra.DataSource = products;
-            MessageBox.Show("Ürünler Bulundu");
+            MessageBox.Show(products.Count + " Adet Ürün Bulundu");
         }
 
         private void btnCSiparisUrunAra_Click(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace VirtualMarketApp
 
             dataGridViewCSiparis.DataSource = null;
             dataGridViewCSiparis.DataSource = products;
-            MessageBox.Show("Ürün Bulundu");
+            MessageBox.Show(products.Count + " Adet Ürün Bulundu");
 
         }
 
@@ -194,6 +194,7 @@ namespace VirtualMarketApp
             if (product == null)
             {
                 MessageBox.Show("Aradığınız Ürün Bulunamadı...");
+                return;
             }
 
             Customer.Add(product);
@@ -245,18 +246,19 @@ namespace VirtualMarketApp
             string bilgi = txtCSiparisSepeteEkleBilgi.Text;
             if (bilgi.Equals(""))
             {
-                MessageBox.Show("Bu Alanı Boş Geçemezsiniz...");
+                MessageBox.Show("Bu Alanı Boş Geçemezsiniz");
                 return;
             }
 
             Product product = Market.SearchProduct(bilgi);
             if (product == null)
             {
-                MessageBox.Show("Aradığınız Ürün Bulunamadı...");
+                MessageBox.Show("Aradığınız Ürün Bulunamadı");
+                return;
             }
 
             Customer.Add(product);
-            MessageBox.Show("Ürün Sepete Eklendi...");
+            MessageBox.Show("Ürün Sepete Eklendi");
         }
 
         private void btnCSepetSatinAl_Click(object sender, EventArgs e)
@@ -264,18 +266,18 @@ namespace VirtualMarketApp
             string bilgi = txtCSepetUrunBilgisi.Text;
             if (bilgi.Equals(""))
             {
-                MessageBox.Show("Bu Alanı Boş Geçemezsiniz...");
+                MessageBox.Show("Bu Alanı Boş Geçemezsiniz");
                 return;
             }
 
             Product product = Customer.ProductControl(bilgi);
             if (product == null)
             {
-                MessageBox.Show("Aradığınız Ürün Bulunamadı...");
+                MessageBox.Show("Aradığınız Ürün Bulunamadı");
             }
 
             Customer.BuyProduct(bilgi);
-            MessageBox.Show("Ürün Satın Alındı Ve Sepetten Çıkarıldı.");
+            MessageBox.Show("Ürün Satın Alındı Ve Sepetten Çıkarıldı");
             SepetUrunListesi();
         }
 
@@ -292,6 +294,7 @@ namespace VirtualMarketApp
             if (product == null)
             {
                 MessageBox.Show("Aradığınız Ürün Bulunamadı...");
+                return;
             }
 
             Customer.DeleteProduct(bilgi);
@@ -301,10 +304,20 @@ namespace VirtualMarketApp
 
         private void btnCSepetHepsiniSatinAl_Click(object sender, EventArgs e)
         {
+            if (Customer.ShoppingList.Count == 0) {
+                MessageBox.Show("Sepetinizde ürün bulunmamaktadır");
+                return;
+            }
             Customer.BuyAll();
-            MessageBox.Show("Bulunan Tüm Ürünler Satın Alındı");
+            MessageBox.Show("Tüm ürünler satın alındı");
             SepetUrunListesi();
 
+
+        }
+
+        private void CustomerForm_Load(object sender, EventArgs e)
+        {
+            UrunAramaUrunListesi();
         }
     }
 }

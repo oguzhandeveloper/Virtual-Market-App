@@ -15,7 +15,7 @@ namespace VirtualMarketApp
         public List<MarketCustomer> Customers { get; set; }
         public List<MarketStaff> Staffs { get; set; }
         VirtualMarket Market;
-
+        Test test = new Test();
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +30,10 @@ namespace VirtualMarketApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            test.Customers = this.Customers;
+            test.Staffs = this.Staffs;
+            test.Market = this.Market;
+            test.DoTest();
         }
 
         private void btnPerOOturumAc_Click(object sender, EventArgs e)
@@ -66,7 +69,6 @@ namespace VirtualMarketApp
 
             if (Staffs[index].Control(username, password))
             {
-                MessageBox.Show("Giriş Tamamlandı..");
                 PersonelForm form = new PersonelForm();
                 form.Market = this.Market;
                 form.Staff = Staffs[index];
@@ -220,7 +222,6 @@ namespace VirtualMarketApp
 
             if (Customers[index].Control(username, password))
             {
-                MessageBox.Show("Giriş Tamamlandı..");
                 CustomerForm form = new CustomerForm();
                 form.Market = this.Market;
                 form.Customer = Customers[index];
@@ -271,6 +272,16 @@ namespace VirtualMarketApp
             }
 
             return -1;
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

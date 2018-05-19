@@ -194,5 +194,11 @@ namespace VirtualMarketApp
             labelGider.Text = Market.Expense.ToString();
             labelKazanc.Text = (Market.InCome - Market.Expense).ToString();
         }
+
+        private void PersonelForm_Load(object sender, EventArgs e)
+        {
+            dataGridViewUEkle.DataSource = null;
+            dataGridViewUEkle.DataSource = this.Market.ProductsList;
+        }
     }
 }

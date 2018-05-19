@@ -122,7 +122,8 @@ namespace VirtualMarketApp
         public Product SearchProduct(string productDescription)
         {
             List<Product> products = Hash.Search(productDescription);
-
+            if (products == null)
+                return null;
             for (int i = 0; i < products.Count; i++)
             {
                 if (products[i].ProductDescription.Equals(productDescription))
