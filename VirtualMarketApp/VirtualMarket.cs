@@ -10,7 +10,7 @@ namespace VirtualMarketApp
     {
         public List<CategoryBST> Categories { get; set; }
         public HashMap Hash { get; set; }
-        public MaxHeap MaxHeapObject { get; set; }
+       
         public MinHeap MinHeapObject { get; set; }
         public List<Product> ProductsList { get; set; }
         public int Size { get; set; }
@@ -23,10 +23,7 @@ namespace VirtualMarketApp
             Categories = new List<CategoryBST>();
             Hash = new HashMap(Size);
             ProductsList = new List<Product>();
-            MaxHeapObject = new MaxHeap(200);
-
-
-
+            MinHeapObject = new MinHeap(200);
         }
 
         public void InsertProductHash(Product product, string productDescription)
@@ -259,11 +256,11 @@ namespace VirtualMarketApp
                 List<ListProduct> listCategory = CategoryListPreOrder(Categories[i].CategoryName);
                 for (int j = 0; j < listCategory.Count; j++)
                 {
-                    List<Product> products = listCategory[i].products;
+                    List<Product> products = listCategory[j].products;
                     for (int k = 0; k < products.Count; k++)
                     {
-                        income += products[i].SalePrice;
-                        expense += products[i].Cost;
+                        income += products[k].SalePrice;
+                        expense += products[k].Cost;
                     }
                 }
 

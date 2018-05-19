@@ -62,9 +62,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnCSepetSatinAl = new System.Windows.Forms.Button();
             this.dataGridViewCSepet = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnCSepetSepettenCikar = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCUrunAra)).BeginInit();
@@ -80,7 +79,6 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -411,26 +409,6 @@
             this.dataGridViewCSepet.Size = new System.Drawing.Size(786, 259);
             this.dataGridViewCSepet.TabIndex = 12;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(792, 424);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Ürünleri Listele";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(792, 424);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
             // btnCSepetSepettenCikar
             // 
             this.btnCSepetSepettenCikar.Location = new System.Drawing.Point(213, 53);
@@ -440,6 +418,16 @@
             this.btnCSepetSepettenCikar.Text = "Sepetten Çıkar";
             this.btnCSepetSepettenCikar.UseVisualStyleBackColor = true;
             this.btnCSepetSepettenCikar.Click += new System.EventHandler(this.btnCSepetSepettenCikar_Click);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(792, 424);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Ürünleri Listele";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // CustomerForm
             // 
@@ -479,8 +467,6 @@
         private System.Windows.Forms.DataGridView dataGridViewCUrunAra;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TextBox txtCUrunAraHash;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCUrunAraHash;
@@ -503,5 +489,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnCUrunSepeteEkle;
         private System.Windows.Forms.Button btnCSepetSepettenCikar;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }

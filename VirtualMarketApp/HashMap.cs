@@ -50,6 +50,9 @@ namespace VirtualMarketApp
         {
             int keyValue = HashFunction(key);
 
+            if (table[keyValue] == null)
+                return null;
+
             List<Product> temp = table[keyValue].Search(key);
 
             return temp;
