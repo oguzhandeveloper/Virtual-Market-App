@@ -15,12 +15,37 @@ namespace VirtualMarketApp
             ShoppingList.Add(product);
         }
 
-        public void BuyAll()
+        public Product ProductControl(string productDesctription)
         {
+            Product product = null;
             for (int i = 0; i < ShoppingList.Count; i++)
             {
-                Market.DeleteProductBTS(ShoppingList[i].ProductDescription);
+                if (ShoppingList[i].ProductDescription.Equals(productDesctription))
+                {
+                    product = ShoppingList[i];
+                    break;
+                }
             }
+
+            return product;
+        }
+
+        public void BuyAll()
+        {
+            int length = ShoppingList.Count;
+            for (int i = 0; i < length; i++)
+            {
+                Market.DeleteProductBTS(ShoppingList[i].ProductDescription);
+                Market.DeleteProductHash(ShoppingList[i].ProductDescription);
+            }
+        }
+
+        public bool BuyProduct(string productDescription)
+        {
+
+            Market.DeleteProductBTS(productDescription);
+            Market.DeleteProductHash(productDescription);
+            return DeleteProduct(productDescription);
         }
 
         public bool DeleteProduct(string productDescription)

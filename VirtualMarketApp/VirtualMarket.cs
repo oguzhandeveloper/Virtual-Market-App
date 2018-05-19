@@ -23,6 +23,7 @@ namespace VirtualMarketApp
             Categories = new List<CategoryBST>();
             Hash = new HashMap(Size);
             ProductsList = new List<Product>();
+            MaxHeapObject = new MaxHeap(200);
 
 
 
@@ -55,6 +56,28 @@ namespace VirtualMarketApp
                 ProductsList.Add(product);
             }
         }
+
+        public void MinHeapAddFull()
+        {
+            for (int i = 0; i < ProductsList.Count; i++)
+            {
+                MinHeapObject.Add(ProductsList[i]);
+            }
+        }
+
+        public List<Product> MinHeapList()
+        {
+            List<Product> products = new List<Product>();
+            int length = MinHeapObject.Size;
+
+            for (int i = 0; i < length; i++)
+            {
+                products.Add(MinHeapObject.Pop());
+            }
+
+            return products;
+        }
+
 
         public void InsertCategoryBTS(string categotyName)
         {

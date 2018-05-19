@@ -39,7 +39,6 @@
             this.btnUEkleEkle = new System.Windows.Forms.Button();
             this.comboBoxUEkleKategori = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,6 +65,8 @@
             this.labelGider = new System.Windows.Forms.Label();
             this.labelGelir = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUEkle)).BeginInit();
@@ -86,6 +87,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label15);
+            this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.btnUEkleGuncelle);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.txtUEkleKategoriNameEkle);
@@ -99,7 +102,6 @@
             this.tabPage1.Controls.Add(this.btnUEkleEkle);
             this.tabPage1.Controls.Add(this.comboBoxUEkleKategori);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
@@ -118,7 +120,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(792, 424);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Ürün Ekleme/Çıkarma";
+            this.tabPage1.Text = "Ürün Ekleme/Çıkarma/Güncelleme";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label10
@@ -126,9 +128,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(311, 22);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 13);
+            this.label10.Size = new System.Drawing.Size(83, 13);
             this.label10.TabIndex = 24;
-            this.label10.Text = "Ürün Tanımı";
+            this.label10.Text = "Ürün Açıklaması";
             // 
             // txtUEkleTanimSilme
             // 
@@ -206,15 +208,6 @@
             this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 16;
             this.label8.Text = "Ürün Kategorisi";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(29, 178);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Ürün Tanımı";
             // 
             // label6
             // 
@@ -445,6 +438,25 @@
             this.panel1.Size = new System.Drawing.Size(306, 153);
             this.panel1.TabIndex = 7;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(29, 178);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Ürün Açıklaması";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(258, 258);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(432, 13);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "Ürün Güncellemesi Ürün Açıklamasına göre yapılmaktadır. Ürün Açıklaması\' nı doğru" +
+    " giriniz.\r\n";
+            // 
             // PersonelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,7 +464,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "PersonelForm";
-            this.Text = "PersonelForm";
+            this.Text = "Personel Form";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PersonelForm_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -473,7 +485,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ComboBox comboBoxUEkleKategori;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -505,5 +516,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label labelGelir;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label7;
     }
 }
