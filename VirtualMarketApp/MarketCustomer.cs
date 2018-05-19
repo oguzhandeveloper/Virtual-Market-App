@@ -17,6 +17,9 @@ namespace VirtualMarketApp
 
         public void Add(Product product)
         {
+            Product product1 = ProductControl(product.ProductDescription);
+            if (product1 != null)
+                return;
             ShoppingList.Add(product);
         }
 
@@ -38,11 +41,10 @@ namespace VirtualMarketApp
         public void BuyAll()
         {
             int length = ShoppingList.Count;
-            for (int i = 0; i < length; i++)
+           while(ShoppingList.Count != 0)
             {
-                Market.DeleteProductBTS(ShoppingList[i].ProductDescription);
-                Market.DeleteProductHash(ShoppingList[i].ProductDescription);
-                ShoppingList.RemoveAt(i);
+                ShoppingList[0].Amount--;
+                ShoppingList.RemoveAt(0);
             }
             
         }
@@ -50,9 +52,13 @@ namespace VirtualMarketApp
         public bool BuyProduct(string productDescription)
         {
 
-            Market.DeleteProductBTS(productDescription);
-            Market.DeleteProductHash(productDescription);
-            return DeleteProduct(productDescription);
+            Product product = ProductControl(productDescription);
+            if (product == null)
+                return false;
+            product.Amount--;
+            ShoppingList.Remove(product);
+            return true;
+
         }
 
         public bool DeleteProduct(string productDescription)

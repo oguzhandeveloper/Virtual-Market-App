@@ -10,7 +10,7 @@ namespace VirtualMarketApp
     {
         public List<CategoryBST> Categories { get; set; }
         public HashMap Hash { get; set; }
-       
+
         public MinHeap MinHeapObject { get; set; }
         public List<Product> ProductsList { get; set; }
         public int Size { get; set; }
@@ -113,6 +113,21 @@ namespace VirtualMarketApp
             return product;
         }
 
+        public Product DeleteList(string productDescription)
+        {
+            for (int i = 0; i < ProductsList.Count; i++)
+            {
+                if (ProductsList[i].ProductDescription.Equals(productDescription))
+                {
+                    Product product = ProductsList[i];
+                    ProductsList.RemoveAt(i);
+                    return product;
+
+                }
+            }
+            return null;
+
+        }
 
         public List<Product> SearchHash(string productDesription)
         {
@@ -247,7 +262,7 @@ namespace VirtualMarketApp
 
         }
 
-        
+
         public void CalculateFinance()// Gelir 
         {
             decimal income = 0;
